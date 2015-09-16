@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection properties - Driver, URL, user, password -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@10.78.203.67:1522:wcs</property>
+		<property name="hibernate.default_schema">REPORTSDBA</property>
+		<property name="hibernate.connection.username">reportsdba</property>
+		<property name="hibernate.connection.password">reportsdba</property>
+		<property name="org.hibernate.dialect.Oracle10gDialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.show_sql">false</property>
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+		<property name="hibernate.generate_statistics">true</property>
+
+		<!-- Connection Pool Size -->
+		<property name="hibernate.connection.pool_size">1</property>
+
+		<!-- org.hibernate.HibernateException: No CurrentSessionContext configured! -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- mapping file, we can use Bean annotations too -->
+		<mapping resource="User.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
